@@ -4,168 +4,92 @@
     <title>明日方舟随机挑战生成器</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
-        // 配置Tailwind自定义颜色，匹配明日方舟风格
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        arknights: {
-                            dark: '#1a1a1a',
-                            darker: '#121212',
-                            red: '#9e2a2b',
-                            lightred: '#bb3b3c',
-                            brown: '#5c4033',
-                            lightbrown: '#8b5a2b',
-                            gold: '#d4af37',
-                            lightgold: '#f9f292',
-                            gray: '#2d2d2d',
-                            lightgray: '#4a4a4a',
-                            paper: '#f5f0e8',
-                            accent: '#c27664'
-                        }
-                    },
-                    fontFamily: {
-                        arknights: ['"Noto Sans SC"', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            }
-            .bg-pattern {
-                background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233d2b1f' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            }
-            .arknights-border {
-                border-image: linear-gradient(to right, #9e2a2b, #d4af37, #9e2a2b) 1;
-            }
-            .card-hover {
-                transition: all 0.3s ease;
-            }
-            .card-hover:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-arknights-darker bg-pattern text-arknights-paper font-arknights min-h-screen">
-    <!-- 顶部装饰条 -->
-    <div class="h-2 bg-gradient-to-r from-arknights-red via-arknights-gold to-arknights-red w-full"></div>
-    
-    <div class="container mx-auto px-4 py-8 max-w-5xl">
-        <!-- 标题区域 -->
-        <header class="mb-10 text-center relative">
-            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-arknights-red rounded-full opacity-20 blur-xl"></div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-arknights-lightgold text-shadow relative z-10">明日方舟</h1>
-            <p class="text-xl md:text-2xl text-arknights-paper/80 italic">随机挑战生成器</p>
-            <div class="mt-6 w-40 h-1 bg-gradient-to-r from-transparent via-arknights-gold to-transparent mx-auto"></div>
-        </header>
+<body class="bg-gray-100 p-6 lg:p-10">
+    <div class="max-w-4xl mx-auto bg-white border-2 border-gray-300 p-8 lg:p-12">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-8 text-center text-red-700">明日方舟随机挑战生成器</h1>
         
-        <!-- 主内容卡片 -->
-        <div class="bg-arknights-dark rounded-lg border-2 border-arknights-brown overflow-hidden shadow-2xl mb-10">
-            <!-- 难度选择和生成按钮区域 -->
-            <div class="bg-arknights-gray p-6 border-b border-arknights-brown">
-                <div class="flex flex-wrap justify-between items-center gap-6">
-                    <div class="flex items-center">
-                        <i class="fa fa-shield text-arknights-gold text-2xl mr-4"></i>
-                        <label for="difficulty" class="text-xl font-medium mr-3 text-arknights-paper/90">挑战难度:</label>
-                        <select id="difficulty" class="bg-arknights-lightgray border border-arknights-brown rounded-md px-4 py-2 text-lg text-arknights-paper focus:border-arknights-gold focus:ring-1 focus:ring-arknights-gold outline-none">
-                            <option value="easy" selected>简单</option>
-                            <option value="normal">普通</option>
-                            <option value="hard">困难</option>
-                            <option value="veryhard">高难</option>
-                            <option value="special">特殊</option>
-                        </select>
-                    </div>
-                    
-                    <div class="flex gap-4">
-                        <button id="clear-history" class="bg-arknights-lightgray hover:bg-arknights-brown text-arknights-paper py-2 px-5 rounded border border-arknights-brown hover:border-arknights-gold transition-all duration-300 flex items-center">
-                            <i class="fa fa-trash mr-2"></i> 清空历史
-                        </button>
-                        <button id="generate" class="bg-arknights-red hover:bg-arknights-lightred text-white py-2 px-6 rounded border border-arknights-brown hover:border-arknights-gold transition-all duration-300 flex items-center">
-                            <i class="fa fa-random mr-2"></i> 生成挑战
-                        </button>
-                        <button id="ten-pulls" class="bg-arknights-brown hover:bg-arknights-lightbrown text-arknights-paper py-2 px-6 rounded border border-arknights-brown hover:border-arknights-gold transition-all duration-300 flex items-center">
-                            <i class="fa fa-refresh mr-2"></i> 十连抽
-                        </button>
-                    </div>
-                </div>
+        <!-- 难度选择和生成按钮区域 -->
+        <div class="flex flex-wrap justify-between items-center mb-10 gap-4">
+            <div>
+                <label for="difficulty" class="text-xl font-medium mr-3">挑战难度:</label>
+                <select id="difficulty" class="border border-gray-300 rounded-md px-4 py-2 text-lg">
+                    <option value="easy" selected>简单</option>
+                    <option value="normal">普通</option>
+                    <option value="hard">困难</option>
+                    <option value="veryhard">高难</option>
+                    <option value="special">特殊</option>
+                </select>
             </div>
             
-            <!-- 当前挑战区域 -->
-            <div class="p-6 md:p-8">
-                <div class="flex items-center mb-6">
-                    <div class="w-1 h-8 bg-arknights-gold mr-3"></div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-arknights-paper">当前挑战</h2>
+            <div class="flex gap-4">
+                <button id="clear-history" class="bg-gray-500 text-white py-3 px-6 rounded-lg hover:bg-gray-600 text-lg transition-all duration-300">
+                    <i class="fa fa-trash mr-2"></i> 清空历史记录
+                </button>
+                <button id="generate" class="bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-700 text-lg flex items-center justify-center transition-all duration-300">
+                    <i class="fa fa-random mr-2"></i> 生成新挑战
+                </button>
+                <button id="ten-pulls" class="bg-purple-600 text-white py-3 px-8 rounded-lg hover:bg-purple-700 text-lg flex items-center justify-center transition-all duration-300">
+                    <i class="fa fa-refresh mr-2"></i> 十连抽
+                </button>
+            </div>
+        </div>
+        
+        <!-- 当前挑战区域 -->
+        <div class="mb-10 p-6 lg:p-8 border-2 border-gray-400 rounded-lg bg-gray-50 shadow-sm">
+            <h2 class="text-2xl lg:text-3xl font-bold mb-6 text-gray-700">当前挑战</h2>
+            
+            <div class="flex flex-col gap-8">
+                <!-- 角色限制部分 -->
+                <div class="bg-white p-5 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-600 flex items-center">
+                        <i class="fa fa-user-circle mr-3 text-blue-500 text-2xl"></i>角色限制
+                    </h3>
+                    <div id="character-restrictions" class="text-xl leading-loose space-y-4">
+                        <p>禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded text-green-700">3星及以下</span>的<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded text-blue-700">医疗</span>的<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded text-purple-700">女性</span>干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded text-red-700">蓝色居多</span>的干员</p>
+                    </div>
                 </div>
                 
-                <div class="space-y-6">
-                    <!-- 角色限制部分 -->
-                    <div class="bg-arknights-gray rounded-lg border border-arknights-brown p-5 card-hover">
-                        <h3 class="text-xl font-semibold mb-4 text-arknights-lightgold flex items-center">
-                            <i class="fa fa-user-circle mr-3 text-arknights-accent text-2xl"></i>角色限制
-                        </h3>
-                        <div id="character-restrictions" class="text-lg leading-relaxed space-y-3 text-arknights-paper/90">
-                            <p>禁止使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 text-arknights-gold">3星及以下</span>的<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 text-arknights-gold">医疗</span>的<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 text-arknights-gold">女性</span>干员</p>
-                            <p>只能使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 text-arknights-gold">蓝色居多</span>的干员</p>
-                        </div>
+                <!-- 战斗条件部分 -->
+                <div class="bg-white p-5 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-600 flex items-center">
+                        <i class="fa fa-exclamation-triangle mr-3 text-orange-500 text-2xl"></i>战斗条件
+                    </h3>
+                    <div id="special-conditions" class="text-xl leading-loose space-y-3">
+                        <span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded inline-block min-w-[200px]">请生成挑战查看条件</span>
                     </div>
-                    
-                    <!-- 战斗条件部分 -->
-                    <div class="bg-arknights-gray rounded-lg border border-arknights-brown p-5 card-hover">
-                        <h3 class="text-xl font-semibold mb-4 text-arknights-lightgold flex items-center">
-                            <i class="fa fa-exclamation-triangle mr-3 text-arknights-red text-2xl"></i>战斗条件
-                        </h3>
-                        <div id="special-conditions" class="text-lg leading-relaxed space-y-3 text-arknights-paper/90">
-                            <span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 inline-block min-w-[200px]">请生成挑战查看条件</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 历史记录区域 -->
-            <div class="p-6 md:p-8 border-t border-arknights-brown bg-arknights-dark/70">
-                <div class="flex items-center mb-6">
-                    <div class="w-1 h-8 bg-arknights-gold mr-3"></div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-arknights-paper">历史挑战记录</h2>
-                </div>
-                <div id="history" class="border border-arknights-brown rounded-lg p-5 max-h-[500px] overflow-y-auto bg-arknights-darker/80">
-                    <p class="text-arknights-paper/50 italic text-lg text-center py-8">暂无历史记录</p>
                 </div>
             </div>
         </div>
         
-        <!-- 页脚 -->
-        <footer class="text-center text-arknights-paper/50 text-sm py-6">
-            <p>明日方舟随机挑战生成器 &copy; 2023</p>
-            <p class="mt-2">本工具仅用于游戏娱乐，与明日方舟官方无关</p>
-        </footer>
+        <!-- 历史记录区域 -->
+        <div>
+            <h2 class="text-2xl lg:text-3xl font-bold mb-6 text-gray-700">历史挑战记录</h2>
+            <div id="history" class="border border-gray-300 rounded-lg p-6 lg:p-8 max-h-[600px] overflow-y-auto bg-gray-50">
+                <p class="text-gray-500 italic text-lg">暂无历史记录</p>
+            </div>
+        </div>
     </div>
 
     <!-- 十连抽结果弹窗 -->
-    <div id="ten-pulls-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
-        <div class="bg-arknights-dark rounded-lg border-2 border-arknights-brown max-w-5xl w-full max-h-[90vh] overflow-y-auto m-4 transform transition-all duration-300 opacity-0 scale-95" id="modal-content">
-            <div class="p-6 border-b border-arknights-brown bg-arknights-gray">
-                <h2 class="text-3xl font-bold text-center text-arknights-lightgold">十连抽结果</h2>
-                <p class="text-center text-arknights-paper/70 mt-2">请选择一个挑战作为最终结果</p>
+    <div id="ten-pulls-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl max-w-5xl w-full max-h-[90vh] overflow-y-auto m-4 transform transition-all duration-300 opacity-0" id="modal-content">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-3xl font-bold text-center text-purple-700">十连抽结果</h2>
+                <p class="text-center text-gray-600 mt-2">请选择一个挑战作为最终结果</p>
             </div>
             
-            <div id="pulls-container" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div id="pulls-container" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6" style="min-height: 1000px;">
                 <!-- 十连抽结果将在这里动态生成 -->
                 <div class="col-span-full flex justify-center items-center h-64">
-                    <i class="fa fa-spinner fa-spin text-5xl text-arknights-gold"></i>
+                    <i class="fa fa-spinner fa-spin text-5xl text-purple-500"></i>
                 </div>
             </div>
             
-            <div class="p-6 border-t border-arknights-brown bg-arknights-gray">
+            <div class="p-6 border-t border-gray-200">
                 <div class="flex justify-center">
-                    <button id="close-modal" class="bg-arknights-lightgray hover:bg-arknights-brown text-arknights-paper py-2 px-6 rounded border border-arknights-brown hover:border-arknights-gold transition-all duration-300">
+                    <button id="close-modal" class="bg-gray-500 text-white py-2 px-6 rounded-lg hover:bg-gray-600 transition-all duration-300">
                         关闭
                     </button>
                 </div>
@@ -179,159 +103,159 @@
         // 存储当前十连抽的结果
         let currentPulls = [];
         
-        // 词条颜色映射表 - 采用明日方舟风格的配色
+        // 词条颜色映射表
         const keywordColors = {
-            // 绿色词条 - 使用游戏中常见的技能绿色
-            "3星及以下": "text-green-400",
-            "4-5星": "text-green-400",
-            "非6星": "text-green-400",
-            "5星及以下": "text-green-400",
-            "0级": "text-green-400",
-            "不满信赖": "text-green-400",
+            // 绿色词条
+            "3星及以下": "text-green-700",
+            "4-5星": "text-green-700",
+            "非6星": "text-green-700",
+            "5星及以下": "text-green-700",
+            "0级": "text-green-700",
+            "不满信赖": "text-green-700",
             
-            // 蓝色词条 - 使用游戏中常见的治疗蓝色
-            "4星及以上": "text-blue-400",
-            "6星": "text-blue-400",
-            "精一": "text-blue-400",
-            "医疗": "text-blue-400",
-            "先锋": "text-blue-400",
-            "近卫": "text-blue-400",
-            "狙击": "text-blue-400",
-            "术士": "text-blue-400",
-            "重装": "text-blue-400",
-            "辅助": "text-blue-400",
-            "特种": "text-blue-400",
-            "罗德岛": "text-blue-400",
-            "龙门": "text-blue-400",
-            "拉特兰": "text-blue-400",
-            "乌萨斯": "text-blue-400",
-            "萨卡兹": "text-blue-400",
-            "猫科": "text-blue-400",
-            "犬科": "text-blue-400",
-            "鸟类": "text-blue-400",
+            // 蓝色词条
+            "4星及以上": "text-blue-700",
+            "6星": "text-blue-700",
+            "精一": "text-blue-700",
+            "医疗": "text-blue-700",
+            "先锋": "text-blue-700",
+            "近卫": "text-blue-700",
+            "狙击": "text-blue-700",
+            "术士": "text-blue-700",
+            "重装": "text-blue-700",
+            "辅助": "text-blue-700",
+            "特种": "text-blue-700",
+            "罗德岛": "text-blue-700",
+            "龙门": "text-blue-700",
+            "拉特兰": "text-blue-700",
+            "乌萨斯": "text-blue-700",
+            "萨卡兹": "text-blue-700",
+            "猫科": "text-blue-700",
+            "犬科": "text-blue-700",
+            "鸟类": "text-blue-700",
             
-            // 紫色词条 - 使用游戏中常见的特殊能力紫色
-            "专三": "text-purple-400",
-            "没专三过": "text-purple-400",
-            "满信赖": "text-purple-400",
-            "限定": "text-purple-400",
-            "限定6星": "text-purple-400",
-            "周年庆": "text-purple-400",
-            "夏活": "text-purple-400",
-            "赠送": "text-purple-400",
-            "联动": "text-purple-400",
-            "女性": "text-purple-400",
-            "男性": "text-purple-400",
-            "近战": "text-purple-400",
-            "远程": "text-purple-400",
-            "高台": "text-purple-400",
-            "地面": "text-purple-400",
-            "医疗或先锋": "text-purple-400",
-            "医疗或近卫": "text-purple-400",
-            "医疗或狙击": "text-purple-400",
-            "医疗或术士": "text-purple-400",
-            "医疗或重装": "text-purple-400",
-            "医疗或辅助": "text-purple-400",
-            "医疗或特种": "text-purple-400",
-            "先锋或近卫": "text-purple-400",
-            "先锋或狙击": "text-purple-400",
-            "先锋或术士": "text-purple-400",
-            "先锋或重装": "text-purple-400",
-            "先锋或辅助": "text-purple-400",
-            "先锋或特种": "text-purple-400",
-            "近卫或狙击": "text-purple-400",
-            "近卫或术士": "text-purple-400",
-            "近卫或重装": "text-purple-400",
-            "近卫或辅助": "text-purple-400",
-            "近卫或特种": "text-purple-400",
-            "狙击或术士": "text-purple-400",
-            "狙击或重装": "text-purple-400",
-            "狙击或辅助": "text-purple-400",
-            "狙击或特种": "text-purple-400",
-            "术士或重装": "text-purple-400",
-            "术士或辅助": "text-purple-400",
-            "术士或特种": "text-purple-400",
-            "重装或辅助": "text-purple-400",
-            "重装或特种": "text-purple-400",
-            "辅助或特种": "text-purple-400",
+            // 紫色词条
+            "专三": "text-purple-700",
+            "没专三过": "text-purple-700",
+            "满信赖": "text-purple-700",
+            "限定": "text-purple-700",
+            "限定6星": "text-purple-700",
+            "周年庆": "text-purple-700",
+            "夏活": "text-purple-700",
+            "赠送": "text-purple-700",
+            "联动": "text-purple-700",
+            "女性": "text-purple-700",
+            "男性": "text-purple-700",
+            "近战": "text-purple-700",
+            "远程": "text-purple-700",
+            "高台": "text-purple-700",
+            "地面": "text-purple-700",
+            "医疗或先锋": "text-purple-700",
+            "医疗或近卫": "text-purple-700",
+            "医疗或狙击": "text-purple-700",
+            "医疗或术士": "text-purple-700",
+            "医疗或重装": "text-purple-700",
+            "医疗或辅助": "text-purple-700",
+            "医疗或特种": "text-purple-700",
+            "先锋或近卫": "text-purple-700",
+            "先锋或狙击": "text-purple-700",
+            "先锋或术士": "text-purple-700",
+            "先锋或重装": "text-purple-700",
+            "先锋或辅助": "text-purple-700",
+            "先锋或特种": "text-purple-700",
+            "近卫或狙击": "text-purple-700",
+            "近卫或术士": "text-purple-700",
+            "近卫或重装": "text-purple-700",
+            "近卫或辅助": "text-purple-700",
+            "近卫或特种": "text-purple-700",
+            "狙击或术士": "text-purple-700",
+            "狙击或重装": "text-purple-700",
+            "狙击或辅助": "text-purple-700",
+            "狙击或特种": "text-purple-700",
+            "术士或重装": "text-purple-700",
+            "术士或辅助": "text-purple-700",
+            "术士或特种": "text-purple-700",
+            "重装或辅助": "text-purple-700",
+            "重装或特种": "text-purple-700",
+            "辅助或特种": "text-purple-700",
             
-            // 橙色词条 - 使用游戏中常见的攻击橙色
-            "非限定": "text-orange-400",
-            "非限定6星": "text-orange-400",
-            "非周年庆": "text-orange-400",
-            "非夏活": "text-orange-400",
-            "非赠送": "text-orange-400",
-            "非联动": "text-orange-400",
-            "精二": "text-orange-400",
-            "满级": "text-orange-400",
-            "群攻型": "text-orange-400",
-            "单体型": "text-orange-400",
-            "可同时群攻和单体": "text-orange-400",
-            "技能群攻型": "text-orange-400",
-            "技能对单型": "text-orange-400",
-            "攻击距离超过一格": "text-orange-400",
-            "攻击距离没超过一格": "text-orange-400",
-            "带攻击回复技能": "text-orange-400",
-            "带自动回复技能": "text-orange-400",
-            "带受击回复技能": "text-orange-400",
-            "带攻击型技能": "text-orange-400",
-            "带buff型技能": "text-orange-400",
-            "带全地图范围型技能": "text-orange-400",
+            // 橙色词条
+            "非限定": "text-orange-600",
+            "非限定6星": "text-orange-600",
+            "非周年庆": "text-orange-600",
+            "非夏活": "text-orange-600",
+            "非赠送": "text-orange-600",
+            "非联动": "text-orange-600",
+            "精二": "text-orange-600",
+            "满级": "text-orange-600",
+            "群攻型": "text-orange-600",
+            "单体型": "text-orange-600",
+            "可同时群攻和单体": "text-orange-600",
+            "技能群攻型": "text-orange-600",
+            "技能对单型": "text-orange-600",
+            "攻击距离超过一格": "text-orange-600",
+            "攻击距离没超过一格": "text-orange-600",
+            "带攻击回复技能": "text-orange-600",
+            "带自动回复技能": "text-orange-600",
+            "带受击回复技能": "text-orange-600",
+            "带攻击型技能": "text-orange-600",
+            "带buff型技能": "text-orange-600",
+            "带全地图范围型技能": "text-orange-600",
             
-            // 红色词条 - 使用游戏中常见的警告红色
-            "蓝色居多": "text-red-400",
-            "粉色居多": "text-red-400",
-            "红色居多": "text-red-400",
-            "黄色居多": "text-red-400",
-            "白色居多": "text-red-400",
-            "绿色居多": "text-red-400",
-            "暖色系": "text-red-400",
-            "冷色系": "text-red-400",
-            "身高160cm以下": "text-red-400",
-            "长角": "text-red-400",
-            "没长角": "text-red-400",
-            "拥有限定皮肤": "text-red-400",
-            "身高160cm以上": "text-red-400",
-            "戴手套": "text-red-400",
-            "不戴手套": "text-red-400",
-            "带餐具": "text-red-400",
-            "有尾巴": "text-red-400",
-            "没尾巴": "text-red-400",
-            "带吃的": "text-red-400",
-            "不带吃的": "text-red-400",
-            "只有一个皮肤": "text-red-400",
-            "没有皮肤": "text-red-400",
-            "至少两个皮肤": "text-red-400",
-            "光滑的": "text-red-400",
-            "使用冷兵器": "text-red-400",
-            "使用热兵器": "text-red-400",
-            "不使用兵器": "text-red-400",
-            "有兵器但不用": "text-red-400",
-            "使用多个兵器": "text-red-400",
-            "穿铠甲": "text-red-400",
-            "穿裙子": "text-red-400",
-            "穿帽子": "text-red-400",
-            "戴眼镜": "text-red-400",
-            "戴口罩": "text-red-400",
-            "嘴上叼东西": "text-red-400",
-            "有动态皮肤": "text-red-400",
-            "蓝色眼睛": "text-red-400",
-            "红色眼睛": "text-red-400",
-            "闭眼睛": "text-red-400",
-            "没头发": "text-red-400",
-            "非人型": "text-red-400",
-            "岛上有亲戚": "text-red-400",
-            "语音声音大": "text-red-400",
-            "语音声音小": "text-red-400",
-            "2020年以前登岛": "text-red-400",
-            "2020年以后登岛": "text-red-400",
-            "白头发": "text-red-400",
-            "粉头发": "text-red-400",
-            "黄头发": "text-red-400",
-            "绿头发": "text-red-400",
-            "不喜欢说话": "text-red-400",
-            "话痨": "text-red-400",
-            "有光污染": "text-red-400"
+            // 红色词条
+            "蓝色居多": "text-red-700",
+            "粉色居多": "text-red-700",
+            "红色居多": "text-red-700",
+            "黄色居多": "text-red-700",
+            "白色居多": "text-red-700",
+            "绿色居多": "text-red-700",
+            "暖色系": "text-red-700",
+            "冷色系": "text-red-700",
+            "身高160cm以下": "text-red-700",
+            "长角": "text-red-700",
+            "没长角": "text-red-700",
+            "拥有限定皮肤": "text-red-700",
+            "身高160cm以上": "text-red-700",
+            "戴手套": "text-red-700",
+            "不戴手套": "text-red-700",
+            "带餐具": "text-red-700",
+            "有尾巴": "text-red-700",
+            "没尾巴": "text-red-700",
+            "带吃的": "text-red-700",
+            "不带吃的": "text-red-700",
+            "只有一个皮肤": "text-red-700",
+            "没有皮肤": "text-red-700",
+            "至少两个皮肤": "text-red-700",
+            "光滑的": "text-red-700",
+            "使用冷兵器": "text-red-700",
+            "使用热兵器": "text-red-700",
+            "不使用兵器": "text-red-700",
+            "有兵器但不用": "text-red-700",
+            "使用多个兵器": "text-red-700",
+            "穿铠甲": "text-red-700",
+            "穿裙子": "text-red-700",
+            "穿帽子": "text-red-700",
+            "戴眼镜": "text-red-700",
+            "戴口罩": "text-red-700",
+            "嘴上叼东西": "text-red-700",
+            "有动态皮肤": "text-red-700",
+            "蓝色眼睛": "text-red-700",
+            "红色眼睛": "text-red-700",
+            "闭眼睛": "text-red-700",
+            "没头发": "text-red-700",
+            "非人型": "text-red-700",
+            "岛上有亲戚": "text-red-700",
+            "语音声音大": "text-red-700",
+            "语音声音小": "text-red-700",
+            "2020年以前登岛": "text-red-700",
+            "2020年以后登岛": "text-red-700",
+            "白头发": "text-red-700",
+            "粉头发": "text-red-700",
+            "黄头发": "text-red-700",
+            "绿头发": "text-red-700",
+            "不喜欢说话": "text-red-700",
+            "话痨": "text-red-700",
+            "有光污染": "text-red-700"
         };
         
         // 挑战内容池 - 四个主要类别
@@ -430,27 +354,15 @@
                 Math.floor(Math.random() * classOrTraitRestrictions.length)
             ];
             
-            // 特殊难度需要三个随机的限制
+            // 特殊难度需要三个相同的限制3
             let special1, special2, special3;
             if (finalDifficulty === 'special') {
-                // 为特殊难度选择三个不同的限制
+                // 为特殊难度选择一个限制3并重复三次
                 special1 = specialRestrictions[
                     Math.floor(Math.random() * specialRestrictions.length)
                 ];
-                
-                // 确保special2与special1不同
-                do {
-                    special2 = specialRestrictions[
-                        Math.floor(Math.random() * specialRestrictions.length)
-                    ];
-                } while (special2 === special1);
-                
-                // 确保special3与前两个不同
-                do {
-                    special3 = specialRestrictions[
-                        Math.floor(Math.random() * specialRestrictions.length)
-                    ];
-                } while (special3 === special1 || special3 === special2);
+                special2 = special1;
+                special3 = special1;
             } else {
                 // 普通情况选择三个不同的限制
                 special1 = specialRestrictions[
@@ -483,42 +395,42 @@
             let charRestrictions = "";
             switch(finalDifficulty) {
                 case 'easy':
-                    // 简单：禁止使用限制1+限制2+限制3+只能使用限制4
+                    // 简单：禁止使用限制1+限制2+限制3+且禁止使用限制4
                     charRestrictions = `
-                        <p>禁止使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color1}">${starSourceLevel}</span>的<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color2}">${classOrTrait}</span>的<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color3}">${special1}</span>干员</p>
-                        <p>只能使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color4}">${special2}</span>的干员</p>
+                        <p>禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color1}">${starSourceLevel}</span>的<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color2}">${classOrTrait}</span>的<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color3}">${special1}</span>干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color4}">${special2}</span>的干员</p>
                     `;
                     break;
                 case 'normal':
-                    // 普通：禁止使用限制1+限制3且只能使用限制4
+                    // 普通：禁止使用限制1+限制3且禁止使用限制4
                     charRestrictions = `
-                        <p>禁止使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color1}">${starSourceLevel}</span>的<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color3}">${special1}</span>干员</p>
-                        <p>只能使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color4}">${special2}</span>的干员</p>
+                        <p>禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color1}">${starSourceLevel}</span>的<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color3}">${special1}</span>干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color4}">${special2}</span>的干员</p>
                     `;
                     break;
                 case 'hard':
-                    // 困难：禁止使用限制1且禁止使用限制2+限制3且只能使用限制4
+                    // 困难：禁止使用限制1且禁止使用限制2+限制3且禁止使用限制4
                     charRestrictions = `
-                        <p>禁止使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color1}">${starSourceLevel}</span>的干员</p>
-                        <p>且禁止使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color2}">${classOrTrait}</span>的<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color3}">${special1}</span>干员</p>
-                        <p>只能使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color4}">${special2}</span>的干员</p>
+                        <p>禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color1}">${starSourceLevel}</span>的干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color2}">${classOrTrait}</span>的<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color3}">${special1}</span>干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color4}">${special2}</span>的干员</p>
                     `;
                     break;
                 case 'veryhard':
-                    // 高难：禁止使用限制1且禁止使用限制2且禁止使用限制3且只能使用限制4
+                    // 高难：禁止使用限制1且禁止使用限制2且禁止使用限制3且禁止使用限制4
                     charRestrictions = `
-                        <p>禁止使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color1}">${starSourceLevel}</span>的干员</p>
-                        <p>且禁止使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color2}">${classOrTrait}</span>的干员</p>
-                        <p>且禁止使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color3}">${special1}</span>的干员</p>
-                        <p>只能使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color4}">${special2}</span>的干员</p>
+                        <p>禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color1}">${starSourceLevel}</span>的干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color2}">${classOrTrait}</span>的干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color3}">${special1}</span>的干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color4}">${special2}</span>的干员</p>
                     `;
                     break;
                 case 'special':
-                    // 特殊：三个随机的限制
+                    // 特殊：禁止使用限制3且禁止使用限制3且禁止使用限制3
                     charRestrictions = `
-                        <p>只能使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color3}">${special1}</span>的干员</p>
-                        <p>且只能使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color4}">${special2}</span>的干员</p>
-                        <p>且只能使用<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 ${color5}">${special3}</span>的干员</p>
+                        <p>禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color3}">${special1}</span>的干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color4}">${special2}</span>的干员</p>
+                        <p>且禁止使用<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded ${color5}">${special3}</span>的干员</p>
                     `;
                     break;
             }
@@ -542,7 +454,7 @@
                 if (i > 0) {
                     battleConditionsHtml += `<br>`;
                 }
-                battleConditionsHtml += `<span class="border-2 border-arknights-gold/50 px-2 py-0.5 mx-1 rounded bg-arknights-dark/50 inline-block min-w-[200px]">${condition}</span>`;
+                battleConditionsHtml += `<span class="border-2 border-yellow-400 px-2 py-1 mx-1 rounded inline-block min-w-[200px]">${condition}</span>`;
             }
             
             const challenge = {
@@ -604,15 +516,15 @@
             // 清空容器并显示加载状态
             container.innerHTML = `
                 <div class="col-span-full flex justify-center items-center h-64">
-                    <i class="fa fa-spinner fa-spin text-5xl text-arknights-gold"></i>
+                    <i class="fa fa-spinner fa-spin text-5xl text-purple-500"></i>
                 </div>
             `;
             
             // 显示弹窗并添加淡入动画
             modal.classList.remove('hidden');
             setTimeout(() => {
-                modalContent.classList.remove('opacity-0', 'scale-95');
-                modalContent.classList.add('opacity-100', 'scale-100');
+                modalContent.classList.remove('opacity-0');
+                modalContent.classList.add('opacity-100');
             }, 10);
             
             // 禁用按钮防止重复点击
@@ -652,43 +564,36 @@
         function addPullCard(challenge, index) {
             const container = document.getElementById('pulls-container');
             
-            // 根据难度设置不同的卡片样式 - 明日方舟风格配色
+            // 根据难度设置不同的卡片样式 - 已按要求更新颜色
             let cardClass = '';
             let difficultyText = '';
-            let difficultyBadgeClass = '';
-            
             switch(challenge.difficulty) {
                 case 'easy': 
-                    cardClass = 'border-green-900/50 bg-green-950/30 hover:border-green-600'; 
+                    cardClass = 'border-green-200 bg-green-50 hover:border-green-400'; 
                     difficultyText = '简单';
-                    difficultyBadgeClass = 'bg-green-900/40 text-green-300 border border-green-800';
                     break;
                 case 'normal': 
-                    cardClass = 'border-blue-900/50 bg-blue-950/30 hover:border-blue-600'; 
+                    cardClass = 'border-blue-200 bg-blue-50 hover:border-blue-400'; 
                     difficultyText = '普通';
-                    difficultyBadgeClass = 'bg-blue-900/40 text-blue-300 border border-blue-800';
                     break;
                 case 'hard': 
-                    cardClass = 'border-purple-900/50 bg-purple-950/30 hover:border-purple-600'; 
+                    cardClass = 'border-purple-200 bg-purple-50 hover:border-purple-400'; 
                     difficultyText = '困难';
-                    difficultyBadgeClass = 'bg-purple-900/40 text-purple-300 border border-purple-800';
                     break;
                 case 'veryhard': 
-                    cardClass = 'border-yellow-900/50 bg-yellow-950/30 hover:border-yellow-600'; 
+                    cardClass = 'border-yellow-200 bg-yellow-50 hover:border-yellow-400'; 
                     difficultyText = '高难';
-                    difficultyBadgeClass = 'bg-yellow-900/40 text-yellow-300 border border-yellow-800';
                     break;
                 case 'special': 
-                    cardClass = 'border-red-900/50 bg-red-950/30 hover:border-red-600'; 
+                    cardClass = 'border-red-200 bg-red-50 hover:border-red-400'; 
                     difficultyText = '特殊';
-                    difficultyBadgeClass = 'bg-red-900/40 text-red-300 border border-red-800';
                     break;
             }
             
             // 使用原始数据构建卡片内容
             const data = challenge.rawData;
             const card = document.createElement('div');
-            card.className = `border rounded-lg p-4 shadow-lg transition-all duration-300 cursor-pointer transform scale-90 opacity-0 ${cardClass} card-hover`;
+            card.className = `border rounded-lg p-4 hover:shadow-lg transition-all duration-300 cursor-pointer transform scale-90 opacity-0 ${cardClass}`;
             
             // 根据不同难度构建不同的卡片内容
             let restrictionsHtml = '';
@@ -696,20 +601,20 @@
                 case 'easy':
                     restrictionsHtml = `
                         <p>禁止使用<span class="${data.color1}">${data.starSourceLevel}</span>的<span class="${data.color2}">${data.classOrTrait}</span>的<span class="${data.color3}">${data.special1}</span>干员</p>
-                        <p>只能使用<span class="${data.color4}">${data.special2}</span>的干员</p>
+                        <p>且禁止使用<span class="${data.color4}">${data.special2}</span>的干员</p>
                     `;
                     break;
                 case 'normal':
                     restrictionsHtml = `
                         <p>禁止使用<span class="${data.color1}">${data.starSourceLevel}</span>的<span class="${data.color3}">${data.special1}</span>干员</p>
-                        <p>只能使用<span class="${data.color4}">${data.special2}</span>的干员</p>
+                        <p>且禁止使用<span class="${data.color4}">${data.special2}</span>的干员</p>
                     `;
                     break;
                 case 'hard':
                     restrictionsHtml = `
                         <p>禁止使用<span class="${data.color1}">${data.starSourceLevel}</span>的干员</p>
                         <p>且禁止使用<span class="${data.color2}">${data.classOrTrait}</span>的<span class="${data.color3}">${data.special1}</span>干员</p>
-                        <p>只能使用<span class="${data.color4}">${data.special2}</span>的干员</p>
+                        <p>且禁止使用<span class="${data.color4}">${data.special2}</span>的干员</p>
                     `;
                     break;
                 case 'veryhard':
@@ -717,32 +622,38 @@
                         <p>禁止使用<span class="${data.color1}">${data.starSourceLevel}</span>的干员</p>
                         <p>且禁止使用<span class="${data.color2}">${data.classOrTrait}</span>的干员</p>
                         <p>且禁止使用<span class="${data.color3}">${data.special1}</span>的干员</p>
-                        <p>只能使用<span class="${data.color4}">${data.special2}</span>的干员</p>
+                        <p>且禁止使用<span class="${data.color4}">${data.special2}</span>的干员</p>
                     `;
                     break;
                 case 'special':
                     restrictionsHtml = `
-                        <p>只能使用<span class="${data.color3}">${data.special1}</span>的干员</p>
-                        <p>且只能使用<span class="${data.color4}">${data.special2}</span>的干员</p>
-                        <p>且只能使用<span class="${data.color5}">${data.special3}</span>的干员</p>
+                        <p>禁止使用<span class="${data.color3}">${data.special1}</span>的干员</p>
+                        <p>且禁止使用<span class="${data.color4}">${data.special2}</span>的干员</p>
+                        <p>且禁止使用<span class="${data.color5}">${data.special3}</span>的干员</p>
                     `;
                     break;
             }
             
             card.innerHTML = `
                 <div class="flex justify-between items-center mb-3">
-                    <span class="text-sm font-medium px-2 py-1 rounded border ${difficultyBadgeClass}">
+                    <span class="text-sm font-medium px-2 py-1 rounded ${
+                        challenge.difficulty === 'easy' ? 'bg-green-100 text-green-800' : 
+                        challenge.difficulty === 'normal' ? 'bg-blue-100 text-blue-800' : 
+                        challenge.difficulty === 'hard' ? 'bg-purple-100 text-purple-800' : 
+                        challenge.difficulty === 'veryhard' ? 'bg-yellow-100 text-yellow-800' : 
+                        'bg-red-100 text-red-800'
+                    }">
                         ${difficultyText}难度
                     </span>
-                    <span class="text-xs text-arknights-paper/60">第${index}抽</span>
+                    <span class="text-xs text-gray-500">第${index}抽</span>
                 </div>
-                <div class="text-sm space-y-3 text-arknights-paper/90">
+                <div class="text-sm space-y-3">
                     <div>
-                        <strong class="text-arknights-lightgold">角色限制:</strong>
+                        <strong>角色限制:</strong>
                         <div class="mt-1">${restrictionsHtml}</div>
                     </div>
-                    <div class="mt-2 pt-2 border-t border-arknights-brown/30">
-                        <strong class="text-arknights-lightgold">战斗条件:</strong>
+                    <div class="mt-2 pt-2 border-t border-gray-100">
+                        <strong>战斗条件:</strong>
                         <div class="mt-1">${data.conditions}</div>
                     </div>
                 </div>
@@ -774,8 +685,8 @@
             const modal = document.getElementById('ten-pulls-modal');
             const modalContent = document.getElementById('modal-content');
             
-            modalContent.classList.remove('opacity-100', 'scale-100');
-            modalContent.classList.add('opacity-0', 'scale-95');
+            modalContent.classList.remove('opacity-100');
+            modalContent.classList.add('opacity-0');
             
             setTimeout(() => {
                 modal.classList.add('hidden');
@@ -799,7 +710,7 @@
             const historyElement = document.getElementById('history');
             
             if (challengeHistory.length === 0) {
-                historyElement.innerHTML = '<p class="text-arknights-paper/50 italic text-lg text-center py-8">暂无历史记录</p>';
+                historyElement.innerHTML = '<p class="text-gray-500 italic text-lg">暂无历史记录</p>';
                 return;
             }
             
@@ -809,44 +720,44 @@
                 let difficultyText = '';
                 switch(item.difficulty) {
                     case 'easy': 
-                        difficultyClass = 'bg-green-900/40 text-green-300 border border-green-800'; 
+                        difficultyClass = 'bg-green-100 text-green-800'; 
                         difficultyText = '简单';
                         break;
                     case 'normal': 
-                        difficultyClass = 'bg-blue-900/40 text-blue-300 border border-blue-800'; 
+                        difficultyClass = 'bg-blue-100 text-blue-800'; 
                         difficultyText = '普通';
                         break;
                     case 'hard': 
-                        difficultyClass = 'bg-purple-900/40 text-purple-300 border border-purple-800'; 
+                        difficultyClass = 'bg-purple-100 text-purple-800'; 
                         difficultyText = '困难';
                         break;
                     case 'veryhard': 
-                        difficultyClass = 'bg-yellow-900/40 text-yellow-300 border border-yellow-800'; 
+                        difficultyClass = 'bg-yellow-100 text-yellow-800'; 
                         difficultyText = '高难';
                         break;
                     case 'special': 
-                        difficultyClass = 'bg-red-900/40 text-red-300 border border-red-800'; 
+                        difficultyClass = 'bg-red-100 text-red-800'; 
                         difficultyText = '特殊';
                         break;
                 }
                 
                 historyHtml += `
-                <div class="mb-8 pb-8 ${index < challengeHistory.length - 1 ? 'border-b border-arknights-brown/30' : ''}">
+                <div class="mb-8 pb-8 ${index < challengeHistory.length - 1 ? 'border-b border-gray-200' : ''}">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-base font-medium ${difficultyClass} px-3 py-1 rounded">
                             ${difficultyText}难度
                         </span>
-                        <span class="text-sm text-arknights-paper/60">${item.time}</span>
+                        <span class="text-sm text-gray-500">${item.time}</span>
                     </div>
                     
-                    <div class="space-y-4">
-                        <div class="bg-arknights-gray/50 p-4 rounded-lg border border-arknights-brown/50">
-                            <h4 class="font-medium text-arknights-lightgold mb-3">角色限制:</h4>
-                            <div class="text-lg leading-relaxed space-y-3">${item.charRestrictions}</div>
+                    <div class="flex flex-col gap-4">
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-medium text-gray-600 mb-3">角色限制:</h4>
+                            <div class="text-lg leading-loose space-y-3">${item.charRestrictions}</div>
                         </div>
-                        <div class="bg-arknights-gray/50 p-4 rounded-lg border border-arknights-brown/50">
-                            <h4 class="font-medium text-arknights-lightgold mb-3">战斗条件:</h4>
-                            <div class="text-lg leading-relaxed space-y-3">${item.specialConditions}</div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-medium text-gray-600 mb-3">战斗条件:</h4>
+                            <div class="text-lg leading-loose space-y-3">${item.specialConditions}</div>
                         </div>
                     </div>
                 </div>`;
@@ -869,8 +780,8 @@
             const modal = document.getElementById('ten-pulls-modal');
             const modalContent = document.getElementById('modal-content');
             
-            modalContent.classList.remove('opacity-100', 'scale-100');
-            modalContent.classList.add('opacity-0', 'scale-95');
+            modalContent.classList.remove('opacity-100');
+            modalContent.classList.add('opacity-0');
             
             setTimeout(() => {
                 modal.classList.add('hidden');
